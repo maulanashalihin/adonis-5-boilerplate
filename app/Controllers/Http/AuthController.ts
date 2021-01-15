@@ -1,6 +1,7 @@
 import User from 'App/Models/User'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { DateTime } from 'luxon'
 
 export default class AuthController {
   public async register ({ request,response }: HttpContextContract) {
@@ -63,8 +64,7 @@ export default class AuthController {
     return view.render('pages/profile')
   }
 
-  public async changePassword ({ request,auth, response,session }: HttpContextContract) {
-     
+  public async changePassword ({ request,auth, response,session }: HttpContextContract) { 
     var user = await auth.authenticate();
     
     user.name = request.input('name');

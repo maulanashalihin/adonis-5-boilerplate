@@ -4,7 +4,7 @@ import {
   column,
   beforeSave,
   BaseModel,
-} from '@ioc:Adonis/Lucid/Orm'
+} from '@ioc:Adonis/Lucid/Orm' 
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -25,14 +25,15 @@ export default class User extends BaseModel {
   @column()
   public rememberMeToken?: string
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, prepare : ()=>DateTime.local().toUTC().toSQL().substr(0,19) })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, prepare : ()=>DateTime.local().toUTC().toSQL().substr(0,19) })
   public updatedAt: DateTime
 
   @beforeSave()
   public static async hashPassword (user: User) {
+   
     if(user.phone)
     {
       var number =  user.phone.split('-').join('-').split(' ').join(' ').split('+').join('-');
