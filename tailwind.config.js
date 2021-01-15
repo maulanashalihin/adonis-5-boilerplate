@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 const Color = require('color')
 module.exports = {
-  purge: ['./resources/views/**/*.edge'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     themeVariants: ['dark'],
