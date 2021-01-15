@@ -1,0 +1,14 @@
+@layout('layout/auth/app')
+@section('title')
+<title>halo</title>
+@endsection
+@section('content')
+<div class="container mx-auto">
+    
+    <script>
+      window.user = {{{ JSON.stringify(user) }}}
+      
+    </script>
+    <!-- ... -->
+  </div>
+@endsection
