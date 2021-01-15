@@ -6,7 +6,9 @@
 <div class=" container max-w-md mx-auto">
   @if(flashMessages.has('success'))
       <div x-show="flash" x-init="flash = true; setTimeout(function(){flash = false},3000)" x-data="{  flash : false}" class="text-white mt-3 px-6 py-4 border-0 rounded relative mb-4 bg-green-500">
- 
+        <span class="text-xl inline-block mr-5 align-middle">
+          <i class="fas fa-bell"></i>
+        </span>
         <span class="inline-block align-middle mr-8"> 
           {{ flashMessages.get('success') }}
 
@@ -20,6 +22,7 @@
             <div
             class="px-4 mt-4  py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
           >
+          
             <label class="block text-sm">
               <span class="text-gray-700 dark:text-gray-400">Name</span>
               <input
@@ -56,6 +59,7 @@
               />
               <small>kosongkan jika anda tidak mau mengganti password</small>
             </label>
+            
             <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Simpan</button>
 
 
